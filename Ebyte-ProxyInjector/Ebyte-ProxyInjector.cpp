@@ -15,14 +15,6 @@ typedef struct _MY_CLIENT_ID {
     HANDLE UniqueThread;
 } MY_CLIENT_ID, * PMY_CLIENT_ID;
 
-extern "C" NTSTATUS NTAPI NtQueryInformationProcess(
-    _In_ HANDLE ProcessHandle,
-    _In_ PROCESSINFOCLASS ProcessInformationClass,
-    _Out_ PVOID ProcessInformation,
-    _In_ ULONG ProcessInformationLength,
-    _Out_opt_ PULONG ReturnLength
-);
-
 extern "C" NTSTATUS NTAPI NtAllocateVirtualMemory(
     _In_ HANDLE ProcessHandle,
     _Inout_ PVOID* BaseAddress,
@@ -64,26 +56,6 @@ extern "C" NTSTATUS NTAPI NtOpenThread(
     _In_ POBJECT_ATTRIBUTES ObjectAttributes,
     _In_ PMY_CLIENT_ID ClientId
 );
-
-typedef struct _RTL_PROCESS_MODULE_INFORMATION {
-    HANDLE Section;
-    PVOID MappedBase;
-    PVOID ImageBase;
-    ULONG ImageSize;
-    ULONG Flags;
-    USHORT LoadOrderIndex;
-    USHORT InitOrderIndex;
-    USHORT LoadCount;
-    USHORT OffsetToFileName;
-    CHAR FullPathName[256];
-} RTL_PROCESS_MODULE_INFORMATION, * PRTL_PROCESS_MODULE_INFORMATION;
-
-typedef struct _RTL_PROCESS_MODULES {
-    ULONG NumberOfModules;
-    RTL_PROCESS_MODULE_INFORMATION Modules[1];
-} RTL_PROCESS_MODULES, * PRTL_PROCESS_MODULES;
-
-#define SystemModuleInformation 11
 
 enum LogLevelType {
     DEBUG_LEVEL,
