@@ -1,4 +1,4 @@
-# EByte-Pattern-AmsiPatch
+# EByte-AMSI-ProxyInjector
 
 An "innovative" AMSI bypass tool that uses function redirection with NT* API calls.
 
