@@ -77,14 +77,14 @@ This ensures that any call to AMSI's scanning function will be redirected to our
 ## Usage
 
 ```
-EByte-Pattern-AmsiPatch.exe <PID> [options]
+Ebyte-ProxyInjector.exe <PID> [options]
 
 Options:
   -v, --verbose    Enable verbose debugging output
   -h, --help       Display this help message
 
 Example:
-  EByte-Pattern-AmsiPatch.exe 1234 --verbose
+  Ebyte-ProxyInjector.exe 1234 --verbose
 ```
 
 ## PoC:
